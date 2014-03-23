@@ -1,4 +1,4 @@
-package bbc.iplayer.ibl.cucumber;
+package gauravkumar.cucumber;
 
 import org.junit.runners.Suite;
 import org.junit.runners.model.InitializationError;
