@@ -1,4 +1,4 @@
-package gauravkumar.cucumber;
+package bbc.iplayer.ibl.cucumber;
 
 import org.junit.runners.Suite;
 import org.junit.runners.model.InitializationError;
@@ -21,16 +21,16 @@ public class ParallelSuite extends Suite {
 
             public void schedule(Runnable childStatement) {
                 service.submit(childStatement);
+
             }
 
             public void finished() {
                 try {
-                    while (!service.awaitTermination(600, TimeUnit.SECONDS)) {
-                        service.shutdownNow();
+                    while (!service.awaitTermination(60, TimeUnit.SECONDS) && Thread.activeCount() != 0) {
+                        service.shutdown();
                     }
                 } catch (InterruptedException ie) {
-                    service.shutdownNow();
-                    Thread.currentThread().interrupt();
+                    ie.printStackTrace(System.err);
                 }
             }
         });
