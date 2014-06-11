@@ -6,7 +6,7 @@ A prototype for parallel JVM-Cucumber tests
 The Idea
 =======
 
-JVM Cucumber tests can be run in parallel using executor service of the Spring framework.
+JVM Cucumber tests can be run in parallel using executor service.
 The idea which is used here is to run different test runners in multiple threads.
 
 Simply run the test runners with customised ParallelSuite class instead of Cucumber class
